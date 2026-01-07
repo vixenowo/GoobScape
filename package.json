@@ -1,0 +1,39 @@
+{
+  "name": "goobscape",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^39.2.4",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.blitzen.goobscape",
+    "productName": "GoobScape",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/connect.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "GoobScape Browser",
+      "installerIcon": "assets/build.ico",
+      "uninstallerIcon": "assets/build.ico",
+      "installerHeaderIcon": "assets/build.ico",
+      "license": "LICENSE.txt"
+    }
+  },
+  "dependencies": {
+    "vm2": "^3.10.0"
+  }
+}

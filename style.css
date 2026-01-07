@@ -1,0 +1,539 @@
+:root {
+    --lightgray: #f8f7f7;
+    --gray: #C0C0C0;
+    --bordergray: #d1d1d1;
+    --unfocus: #818181;
+    --focus: rgb(69, 48, 189);
+    --topfocus: linear-gradient(90deg, rgb(69, 48, 189), rgb(36, 159, 168));
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    image-rendering: pixelated;
+}
+
+::-webkit-scrollbar {
+    width: 14px; 
+    height: 14px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #c7c6c6; 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(194, 193, 193); 
+    border: 2px outset gray;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(143, 143, 143);
+}
+
+::-webkit-scrollbar-corner {
+    background: #c7c6c6;
+}
+
+button:focus,
+input:focus {
+    outline: 2px solid var(--focus);
+    outline-offset: 0px;
+    border-radius: 0;
+}
+
+body {
+    background-color: white;
+    color: black;
+    margin: 0;
+    overflow: hidden;
+}
+
+body .container {
+    background-color: var(--gray);
+    border: 3px outset var(--bordergray);
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    box-sizing: border-box;
+}
+
+fieldset{
+    border: 1px inset var(--bordergray);
+    margin-bottom: 7px;
+}
+
+fieldset:last-child{
+    margin-bottom: 3px;
+}
+
+fieldset legend{
+    font-size: 14px;
+    margin-left: -5px;
+}
+
+body .container .movebar,
+.settings .nonmovebar {
+    background-image: var(--topfocus);
+    color: white;
+    padding: 4px;
+    height: 20px;
+    display: flex;
+}
+
+body .container .movebar{
+    -webkit-app-region: drag;
+}
+
+body .container .movebar p,
+.settings .nonmovebar p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+body .container .movebar div:nth-child(1),
+.settings .nonmovebar div:nth-child(1) {
+    flex: 1;
+    /* take remaining space */
+    overflow: hidden;
+}
+
+body .container .movebar div:nth-child(1) p,
+.settings .nonmovebar div:nth-child(1) p {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    margin-right: 5px;
+}
+
+body .container .movebar div,
+.settings .nonmovebar div {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+body .container .movebar img,
+.settings .nonmovebar img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    margin-right: 2px;
+}
+
+
+body .container .movebar button,
+.settings .nonmovebar button {
+    -webkit-app-region: no-drag;
+    border: 2px outset var(--bordergray);
+    background-color: var(--gray);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 25px;
+}
+
+body .container .movebar button:active,
+.settings .nonmovebar button:active {
+    -webkit-app-region: no-drag;
+    border: 2px inset var(--bordergray);
+    background-color: var(--bordergray);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 25px;
+}
+
+body .container .movebar button:active span,
+.settings .nonmovebar button:active span,
+.settings .fieldsetting button:active span {
+    transform: translateY(1px) translateX(1px);
+}
+
+body .container .movebar button span,
+.settings .nonmovebar button span {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1;
+}
+
+body .container .movebar button:nth-child(2) span,
+.settings .nonmovebar button:nth-child(2) span {
+    font-size: 14px;
+}
+
+
+body .container .movebar button:focus,
+.settings .nonmovebar button:focus,
+.settings .fieldsetting button:focus,
+.settings .fieldsetting input[type=text]:focus {
+    outline: none;
+}
+
+body .container .border {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body .container .padinside {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body .container .topbar {
+    margin: 0;
+    border: 1px inset var(--lightgray);
+    margin-bottom: 5px;
+    padding: 2px;
+}
+
+body .container .topbar .locationbar {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 20px;
+}
+
+body .container .topbar .locationbar div {
+    display: flex;
+    align-items: center;
+}
+
+body .container .topbar .locationbar div:nth-child(2) {
+    flex: 1;
+}
+
+body .container .topbar .locationbar p {
+    margin: 0;
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+body .container .topbar .addressbar {
+    flex: 1;
+    border: 2px inset var(--bordergray);
+    position: relative;
+    display: flex;
+}
+
+body .container .topbar .addressthing{
+    flex: 1;
+    position: relative;
+    z-index: 5;
+}
+
+.addressthing:focus-within{
+    outline: 2px solid var(--focus);
+}
+
+body .container .topbar .addressbar button {
+    border: 0;
+    padding: 0px 2px;
+    margin: 0;
+}
+
+body .container .topbar .addressbar button span {
+    font-size: 15px;
+}
+
+body .container .topbar .addressbar input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+body .container .topbar .addressbar #progress-container {
+    width: 100%;
+    height: 100%;
+    background: white;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+}
+
+body .container .topbar .scrollopts {
+    height: 100%;
+}
+
+
+body .container .topbar button {
+    border: 0;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    border-right: 1px outset var(--lightgray);
+    width: max-content;
+    margin-right: 5px;
+    margin-left: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body .container .topbar button:active span {
+    transform: translateY(1px) translateX(1px);
+}
+
+body .container .topbar button:focus {
+    outline: none;
+}
+
+body .container .topbar .scrollopts button span {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+body .container .topbar button:last-child {
+    border: none;
+    margin-right: -2px;
+}
+
+main {
+    border: 2px inset var(--bordergray);
+    background-color: white;
+    flex: 1;
+}
+
+main iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #b8dbff;
+    /*transition: width 0.25s linear;*/
+}
+
+footer {
+    border: 1px inset var(--lightgray);
+    background-color: var(--gray);
+    padding: 4px;
+    margin: 4px 0px;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+footer p {
+    margin: 0;
+}
+
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    z-index: 10000;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+    cursor: nwse-resize;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    cursor: nesw-resize;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    cursor: nesw-resize;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+    cursor: nwse-resize;
+}
+
+.settings{
+    position: absolute;
+    z-index: 10000;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#history-window{
+    z-index: 10001;
+}
+
+#history-window .historylog{
+    border: 2px inset var(--bordergray);
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#history-window .historylog p{
+    padding: 0px 10px;
+}
+
+.settings .setbox{
+    width: 100%;
+    max-height: 100%; 
+    overflow-y: auto;
+    height: max-content;
+    max-width: 400px;
+    background-color: var(--gray);
+    border: 3px outset var(--bordergray);
+    box-sizing: border-box;
+}
+
+#history-window .setbox{
+    max-width: 500px;
+}
+
+.settings .settingspage-holder{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.settings .settingspage{
+    flex: 1;
+    margin: 3px;
+    padding: 5px;
+}
+
+.settings .settingspage p{
+    margin: 0;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.settings .fieldsetting{
+    display: flex;
+    box-sizing: border-box;
+}
+
+.settings .fieldsetting > div:nth-child(1){
+    margin-right: 10px;
+}
+
+.settings .fieldsetting > div:nth-child(2){
+    width: 100%;
+}
+
+.settings .fieldsetting > div:nth-child(2) p{
+    margin: 0;
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+
+.settings .fieldsetting .settinginputbar{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.settings .fieldsetting .settinginputbar input{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.settings .fieldsetting .settingdnsupdate{
+    display: flex;
+    margin-top: 7px;
+}
+
+.settings .fieldsetting .settingdnsupdate > div:nth-child(1){
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.settings .fieldsetting .settingdnsupdate > div:nth-child(2){
+    display: flex;
+    align-items: center;
+}
+
+.settings .fieldsetting .settingdnsupdate > div:nth-child(2) button{
+    margin-left: 5px;
+}
+
+.settings .fieldsetting .settingdnsupdate > div:nth-child(1) p{
+    margin: 0;
+    margin-right: 7px;
+    opacity: 0.5;
+    font-size: 13px;
+    width: 100%;
+    text-align: right;
+}
+
+.settings .fieldsetting button{
+    -webkit-app-region: no-drag;
+    border: 2px outset var(--bordergray);
+    background-color: var(--gray);
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.settings .fieldsetting button:active {
+    -webkit-app-region: no-drag;
+    border: 2px inset var(--bordergray);
+    background-color: var(--bordergray);
+}
+
+.settings .fieldsetting input[type=text]{
+    border: 2px inset var(--bordergray);
+}
+
+.settings .av-label {
+    display: flex;
+    align-items: flex-start;
+    margin: 0; 
+    padding: 4px 0; 
+    cursor: pointer;
+}
+
+.settings .av-label input[type="radio"] {
+    margin-right: 6px; 
+    margin-top: 3px; 
+}
+
+.settings .av-title {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.settings .av-desc {
+    font-size: 11px;
+    opacity: 0.8;
+    display: block;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .errorpage {
+            padding: 50px;
+        }
+
+        .errorimg {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 7px;
+        }
+
+        .topdown {
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0px;
+
+        }
+
+        .topdown div {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .topdown div h1{
+            margin: 0;
+            margin-top: 5px;
+        }
+
+        .warnico {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            margin-right: 7px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="errorpage">
+        <div class="topdown">
+            <div>
+                <img class="warnico" src="assets/warn.png" alt="">
+            </div>
+            <div>
+                <h1>Failed to connect</h1>
+            </div>
+        </div>
+        <p>{{error}}</p>
+        <br>
+        <p><b>Common reasons:</b></p>
+        <ul>
+            <li>Domain does not exist</li>
+            <li>Domain was entered wrong</li>
+            <li>The server for this domain doesnt exist or is having issues</li>
+            <li>Something else happened</li>
+        </ul>
+        <p>Check you have typed it correctly, otherwise check the error for more information</p>
+    </div>
+</body>
+
+</html>

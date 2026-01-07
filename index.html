@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>GoobScape</title>
+    <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />-->
+    <link rel="stylesheet" type="text/css" href="style.css?ch=l4kMU">
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="settings" id="history-window">
+        <div class="setbox">
+            <div class="nonmovebar">
+                <div>
+                    <img src="assets/search.png" alt="">
+                    <p>
+                        <span>History</span>
+                    </p>
+                </div>
+                <div>
+                    <button id="close-history">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="settingspage-holder">
+                <div class="settingspage-holder">
+                    <div class="settingspage">
+                        <div class="historylog" id="historylog">
+                            History
+                        </div>
+                        <p>Some pages not listed here may still have login data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings" id="settings-window">
+        <div class="setbox">
+            <div class="nonmovebar">
+                <div>
+                    <img src="assets/display.png" alt="">
+                    <p>
+                        <span>Settings</span>
+                    </p>
+                </div>
+                <div>
+                    <button id="close-settings">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="settingspage-holder">
+                <div class="settingspage-holder">
+                    <div class="settingspage">
+                        <fieldset>
+                            <legend>DNS proxy</legend>
+                            <div class="fieldsetting">
+                                <div>
+                                    <img src="assets/phone.png" alt="">
+                                </div>
+                                <div>
+                                    <p>You can change the DNS server for custom domains managed by someone else</p>
+                                    <p>Proxy DNS can set their own domains / pages and can view your internet traffic -
+                                        use at risk</p>
+                                    <div class="settinginputbar">
+                                        <input type="text" id="dns-input" placeholder="https://example.com/dns.php">
+                                    </div>
+                                    <div class="settingdnsupdate">
+                                        <div>
+                                            <p id="dns-status"></p>
+                                        </div>
+                                        <div>
+                                            <button id="save-dns">
+                                                <span>Save DNS</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Security</legend>
+                            <div class="fieldsetting">
+                                <div>
+                                    <img src="assets/warning.png" alt="">
+                                </div>
+                                <div>
+                                    <p>Page content (such as videos and images) are limited by default for a more classic feel but also to prevent pages breaking the browser</p>
+
+                                    <div class="av-options">
+                                        <label class="av-label">
+                                            <input type="radio" name="avsetting" value="no-av">
+                                            <div class="av-text">
+                                                <span class="av-title">Chill out mate</span><br>
+                                                <span class="av-desc">Display nothing<br>No images/video/audio - just text, css and dreams</span>
+                                            </div>
+                                        </label>
+                                        <label class="av-label">
+                                            <input type="radio" name="avsetting" value="check-enabled" checked>
+                                            <div>
+                                                <span class="av-title">Normal</span><br>
+                                                <span class="av-desc">Display with a checkover (recommended)<br>50MB max, 20s timeout, audio/video/image allowed</span>
+                                            </div>
+                                        </label>
+                                        <label class="av-label">
+                                            <input type="radio" name="avsetting" value="check-disabled">
+                                            <div>
+                                                <span class="av-title">Chaos and anarchy</span><br>
+                                                <span class="av-desc">Display everything (not recommended)<br>Any file size, no timeout, any file allowed<br>Frame escaping Javascript will remain blocked</span>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="settingdnsupdate">
+                                        <div></div>
+                                        <div>
+                                            <button id="save-av">Update</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Browsing Data</legend>
+                            <div class="fieldsetting">
+                                <div>
+                                    <img src="assets/print.png" alt="">
+                                </div>
+                                <div>
+                                    <p>History is not saved when you close the browser, login tokens are saved</p>
+                                    <div class="settingdnsupdate">
+                                        <div></div>
+                                        <div>
+                                            <button id="display-history">
+                                                <span>Display</span>
+                                            </button>
+                                            <button id="delete-history">
+                                                <span>Delete all</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="border">
+            <div class="movebar">
+                <div>
+                    <img src="assets/connect.png" alt="">
+                    <p>
+                        <span id="page-title"></span>
+                    </p>
+                </div>
+                <div>
+                    <button>
+                        <span class="material-symbols-outlined">
+                            minimize
+                        </span>
+                    </button>
+                    <button>
+                        <span id="minmax" class="material-symbols-outlined">
+                            ad
+                        </span>
+                    </button>
+                    <button>
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="padinside">
+                <form>
+                    <header class="topbar">
+                        <div class="locationbar">
+                            <div>
+                                <p>Address</p>
+                            </div>
+                            <div class="addressbar">
+                                <div class="addressthing">
+                                    <button type="button" id="domaindeets"><span class="material-symbols-outlined"
+                                            id="domainico">
+                                            dns
+                                        </span></button>
+                                    <input pattern="[A-Za-z0-9?+\/=.:-]+" maxlength="300" type="text" name="URL"
+                                        id="URL" placeholder="goob://" value="goob://">
+                                </div>
+                                <div id="progress-container">
+                                    <div id="progress-bar"></div>
+                                </div>
+                            </div>
+                            <div class="scrollopts">
+                                <button type="submit"><span class="material-symbols-outlined">
+                                        search
+                                    </span>
+                                </button>
+                                <button type="button" id="home"><span class="material-symbols-outlined">
+                                        home
+                                    </span></button>
+                                <button type="button" id="refresh"><span class="material-symbols-outlined">
+                                        refresh
+                                    </span></button>
+                                <button type="button" id="back"><span class="material-symbols-outlined">
+                                        arrow_left_alt
+                                    </span></button>
+                                <button type="button" id="forward"><span class="material-symbols-outlined">
+                                        arrow_right_alt
+                                    </span></button>
+                                <button type="button" id="settings"><span class="material-symbols-outlined">
+                                        settings_ethernet
+                                    </span></button>
+                            </div>
+                        </div>
+                    </header>
+                </form>
+                <main>
+                    <iframe id="sandboxed-frame"
+                        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </main>
+                <footer>
+                    <p id="loadingtask">about:blank</p>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="render.js"></script>
+<script src="window.js"></script>
